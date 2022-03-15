@@ -1,16 +1,17 @@
 package service;
 
-import org.junit.jupiter.api.Test;
-import repository.StudentRepository;
+import org.junit.Test;
 import repository.StudentXMLRepository;
 import validation.StudentValidator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class ServiceTest {
+
+
+public class ServiceTest {
 
     @Test
-    void saveStudent_correctInput_correctlyCreated() {
+    public void saveStudent_correctInput_correctlyCreated() {
         StudentXMLRepository studentRepository = new StudentXMLRepository(new StudentValidator(), "test_files/testSaveStudent.xml");
         Service service = new Service(studentRepository, null, null);
         String id = "1";
@@ -23,7 +24,7 @@ class ServiceTest {
     }
 
     @Test
-    void saveStudent_invalidInput_errorThrown() {
+    public void saveStudent_invalidInput_errorThrown() {
         StudentXMLRepository studentRepository = new StudentXMLRepository(new StudentValidator(), "test_files/testSaveStudent.xml");
         Service service = new Service(studentRepository, null, null);
         String id = null;

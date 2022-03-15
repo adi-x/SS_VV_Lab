@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ssvv_1_maven" />
-        <module name="Proj01_Maven" />
+        <module name="Proj01_Maven2" />
       </profile>
     </annotationProcessing>
   </component>
