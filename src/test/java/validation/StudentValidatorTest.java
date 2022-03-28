@@ -87,4 +87,18 @@ public class StudentValidatorTest {
         student.setGrupa(multipleZeros);
         assertThrows(ValidationException.class, () -> studentValidator.validate(student));
     }
+
+    @Test
+    public void validateStudent_validId_validId() {
+        int goodId = 5;
+        student.setID(String.valueOf(goodId));
+        assertDoesNotThrow(() -> studentValidator.validate(student));
+    }
+
+    @Test
+    public void validateStudent_invalidId_validId() {
+        String badId = null;
+        student.setID(badId);
+        assertThrows(ValidationException.class, () -> studentValidator.validate(student));
+    }
 }
