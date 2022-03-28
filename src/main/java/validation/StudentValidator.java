@@ -12,6 +12,21 @@ public class StudentValidator implements Validator<Student> {
         if (student.getGrupa() <= 110 || student.getGrupa() >= 938) {
             throw new ValidationException("Grupa invalida! \n");
         }
+        if (hasZeros(student.getGrupa()))
+            throw new ValidationException("Grupa invalida! \n");
+
+
+    }
+
+    private boolean hasZeros(int grupa) {
+        if (grupa == 0) return true;
+
+        while (grupa > 0) {
+            if (grupa % 10 == 0)
+                return true;
+            grupa /= 10;
+        }
+        return false;
     }
 }
 
