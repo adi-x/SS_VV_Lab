@@ -40,7 +40,7 @@ public class StudentValidatorTest {
     }
 
     @Test
-    public void validateStudent_exactlyThreeDigitsGroup_invalidStudent() {
+    public void validateStudent_exactlyThreeDigitsGroup_validStudent() {
         int lessThenThreeDigitsGroup = 123;
         student.setGrupa(lessThenThreeDigitsGroup);
         assertDoesNotThrow(() -> studentValidator.validate(student));
