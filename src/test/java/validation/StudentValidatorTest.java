@@ -40,7 +40,7 @@ public class StudentValidatorTest {
     }
 
     @Test
-    public void validateStudent_exactlyThreeDigitsGroup_invalidStudent() {
+    public void validateStudent_exactlyThreeDigitsGroup_validStudent() {
         int lessThenThreeDigitsGroup = 123;
         student.setGrupa(lessThenThreeDigitsGroup);
         assertDoesNotThrow(() -> studentValidator.validate(student));
@@ -85,6 +85,20 @@ public class StudentValidatorTest {
     public void validateStudent_MultipleZeroDigitsGroup_invalidStudent() {
         int multipleZeros = 90000;
         student.setGrupa(multipleZeros);
+        assertThrows(ValidationException.class, () -> studentValidator.validate(student));
+    }
+
+    @Test
+    public void validateStudent_validId_validId() {
+        int goodId = 5;
+        student.setID(String.valueOf(goodId));
+        assertDoesNotThrow(() -> studentValidator.validate(student));
+    }
+
+    @Test
+    public void validateStudent_invalidId_validId() {
+        String badId = null;
+        student.setID(badId);
         assertThrows(ValidationException.class, () -> studentValidator.validate(student));
     }
 }
