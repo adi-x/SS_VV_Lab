@@ -1,5 +1,8 @@
 package service;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repository.StudentXMLRepository;
 import validation.StudentValidator;
@@ -16,6 +19,11 @@ public class ServiceTest {
     public void SetUp() {
         studentRepository = new StudentXMLRepository(new StudentValidator(), "test_files/testSaveStudent.xml");
         service = new Service(studentRepository, null, null);
+    }
+
+    @AfterEach
+    public void AfterAll() {
+        studentRepository.delete("1");
     }
 
     @Test
