@@ -9,10 +9,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServiceTest {
 
+    StudentXMLRepository studentRepository;
+    Service service;
+
+    @BeforeEach
+    public void SetUp() {
+        studentRepository = new StudentXMLRepository(new StudentValidator(), "test_files/testSaveStudent.xml");
+        service = new Service(studentRepository, null, null);
+    }
+
     @Test
     public void saveStudent_correctInput_correctlyCreated() {
-        StudentXMLRepository studentRepository = new StudentXMLRepository(new StudentValidator(), "test_files/testSaveStudent.xml");
-        Service service = new Service(studentRepository, null, null);
         String id = "1";
         String nume = "Ana";
         int grupa = 221;
@@ -24,8 +31,6 @@ public class ServiceTest {
 
     @Test
     public void saveStudent_invalidInput_errorThrown() {
-        StudentXMLRepository studentRepository = new StudentXMLRepository(new StudentValidator(), "test_files/testSaveStudent.xml");
-        Service service = new Service(studentRepository, null, null);
         String id = null;
         String nume = "Ana";
         int grupa = 221;
