@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Studenti>
+<Entitati>
     <student ID="2">
         <Nume>Maria</Nume>
         <Grupa>222</Grupa>
@@ -8,4 +8,16 @@
         <Nume>Ion</Nume>
         <Grupa>227</Grupa>
     </student>
-</Studenti>
+    <student ID="1001">
+        <Nume>Adi1</Nume>
+        <Grupa>221</Grupa>
+    </student>
+    <student ID="2001">
+        <Nume>Adi2</Nume>
+        <Grupa>222</Grupa>
+    </student>
+    <student ID="3001">
+        <Nume>Adi3</Nume>
+        <Grupa>223</Grupa>
+    </student>
+</Entitati>

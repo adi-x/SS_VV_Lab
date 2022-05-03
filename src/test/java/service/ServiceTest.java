@@ -139,4 +139,60 @@ public class ServiceTest {
         assertEquals(0, successAssignment);
         assertEquals(0, successGrade);
     }
+
+    @Test
+    public void integration_addStudent() {
+        String id = "1234";
+        String nume = "Vasile";
+        int grupa = 221;
+
+        int success = service.saveStudent(id, nume, grupa);
+
+        assertEquals(0, success);
+    }
+
+    @Test
+    public void integration_addAssignment() {
+        String studentId = "1234";
+        String studentNume = "Vasile";
+        int studentGrupa = 221;
+
+        int studentSuccess = service.saveStudent(studentId, studentNume, studentGrupa);
+
+        String assignmentId = "1234";
+        String assignmentDescriere = "random stuff";
+        int assignmentDeadline = 5;
+        int assignmentStartline = 3;
+
+        int assignmentSuccess = service.saveTema(assignmentId, assignmentDescriere, assignmentDeadline, assignmentStartline);
+
+        assertEquals(0, studentSuccess);
+        assertEquals(0, assignmentSuccess);
+    }
+
+    @Test
+    public void integration_addGrade() {
+        String studentId = "1234";
+        String studentNume = "Vasile";
+        int studentGrupa = 221;
+
+        int studentSuccess = service.saveStudent(studentId, studentNume, studentGrupa);
+
+        String assignmentId = "1234";
+        String assignmentDescriere = "random stuff";
+        int assignmentDeadline = 5;
+        int assignmentStartline = 3;
+
+        int assignmentSuccess = service.saveTema(assignmentId, assignmentDescriere, assignmentDeadline, assignmentStartline);
+
+        int valNota = 5;
+        int predata = 10;
+        String feedback = "nothing important";
+        int success = service.saveNota(studentId, assignmentId, valNota, predata, feedback);
+
+        assertEquals(0, studentSuccess);
+        assertEquals(0, assignmentSuccess);
+        assertEquals(0, success);
+    }
+
 }
